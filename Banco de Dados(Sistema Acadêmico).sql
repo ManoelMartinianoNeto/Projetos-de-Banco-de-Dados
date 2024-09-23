@@ -10,15 +10,15 @@ CREATE TABLE alunos (
 
 CREATE TABLE matriculas (
     id SERIAL PRIMARY KEY,
-    id_disciplina INT REFERENCES disciplinas(id),
-    matricula_aluno INT REFERENCES alunos(matricula),
+    FOREIGN KEY id_disciplina REFERENCES disciplinas(id),
+     FOREIGN KEY matricula_aluno REFERENCES alunos(matricula),
     UNIQUE (id_disciplina, matricula_aluno)
 );
 
 CREATE TABLE notas (
     id SERIAL PRIMARY KEY,
-    id_disciplina INT REFERENCES disciplinas(id),
-    matricula_aluno INT REFERENCES alunos(matricula),
+    FOREIGN KEY id_disciplina REFERENCES disciplinas(id),
+    FOREIGN KEY matricula_aluno REFERENCES alunos(matricula),
     nota DECIMAL(5,2),
     UNIQUE (id_disciplina, matricula_aluno)
 );
